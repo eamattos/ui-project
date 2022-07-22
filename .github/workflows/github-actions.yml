@@ -7,18 +7,18 @@ jobs:
       matrix:
         dotnet-version: [ '5.0.x' ]    
     steps:
-      - name: "Run build-chain"
-        id: build-chain
-        uses: eamattos/generic-artifact@main
-        with:
-          definition-file: https://github.com/eamattos/generic-artifact/blob/main/.github/workflows/github-actions.yml    
       - uses: actions/checkout@v3
       - name: Setup dotnet ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Display dotnet version
-        run: dotnet --version        
+        run: dotnet --version     
+      - name: "Run build-chain"
+        id: build-chain
+        uses: eamattos/generic-artifact@main
+        with:
+          definition-file: https://github.com/eamattos/generic-artifact/blob/main/.github/workflows/github-actions.yml            
       - name: Install dependencies
         run: dotnet restore
       - name: Test with dotnet
