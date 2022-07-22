@@ -14,6 +14,11 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Display dotnet version
         run: dotnet --version     
+      - name: Check out my other repo
+        uses: actions/checkout@master
+        with:
+          repository: eamattos/generic-artifact
+          token: ${{ secrets.my_part }}
       - name: "Run build-chain"
         id: build-chain
         uses: eamattos/generic-artifact@main
