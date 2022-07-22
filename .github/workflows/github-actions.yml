@@ -17,8 +17,7 @@ jobs:
       - name: Check out my other repo
         uses: actions/checkout@master
         with:
-          repository: eamattos/generic-artifact
-          token: ${{ secrets.my_part }}            
+          repository: eamattos/generic-artifact       
       - name: Install dependencies
         run: dotnet restore
       - name: Test with dotnet
