@@ -18,12 +18,7 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: eamattos/generic-artifact
-          token: ${{ secrets.my_part }}
-      - name: "Run build-chain"
-        id: build-chain
-        uses: eamattos/generic-artifact@main
-        with:
-          definition-file: https://github.com/eamattos/generic-artifact/blob/main/.github/workflows/github-actions.yml            
+          token: ${{ secrets.my_part }}            
       - name: Install dependencies
         run: dotnet restore
       - name: Test with dotnet
